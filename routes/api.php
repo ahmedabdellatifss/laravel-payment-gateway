@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('pay' ,[FatoorahController::class, 'payOrder']);
+Route::get('call_back' ,[FatoorahController::class, 'paymentCallBack']);
