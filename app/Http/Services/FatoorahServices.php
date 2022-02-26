@@ -59,8 +59,25 @@ class FatoorahServices
     }
 
 
+
+    public function getPaymentStatus($data)
+    {
+
+        return $response = $this->buildRequest('v2/getPaymentStatus' , 'POST' , $data);
+
+    }
+
+
     private function saveTransactionPayment($patient_id , $invoice_id)
     {
+
+    }
+
+
+    public function transactionCallback($request)
+    {
+        return $request;
+
 
     }
 

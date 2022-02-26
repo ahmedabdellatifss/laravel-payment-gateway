@@ -32,10 +32,15 @@ class FatoorahController extends Controller
         return $this->fatoorahservices->sendPayment($data);
     }
 
+
+
     public function paymentCallBack(Request $request)
     {
-        // save the transaction to DB , subscribe
-        dd($request);
+        $data= [];
+        $data['key']=$request->paymentId;
+        $data['keyType']='paymentId';
+
+        return $this->fatoorahservices->getPaymentStatus($data);
     }
 
 
