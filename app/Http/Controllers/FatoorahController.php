@@ -18,17 +18,17 @@ class FatoorahController extends Controller
     {
 
         $data = [
-            "CustomerName" => '',
+            "CustomerName" => "Ahmed abdellatif",
             "NotificationOption" => "LNK",
             "InvoiceValue" => 100,
             "CustomerEmail" => 'ahmedmohmmed1992@gmail.com',
-            "CallCackUrl" => env('success_url'),
-            "ErrorUrl" => env('error_url'),
+            "CallCackUrl" => 'https://google.com',
+            "ErrorUrl" => 'https://youtube.com',
             "Language" => 'en',
-            "DisplayCurrencyIso" => 'SA',
+            "DisplayCurrencyIso" => 'SAR',
         ];
 
-        $this->fatoorahservices->sendPayment($data);
+        return $this->fatoorahservices->sendPayment($data);
     }
 
 

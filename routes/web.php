@@ -19,3 +19,12 @@ Route::get('/', function () {
 });
 
 Route::get('pay' ,[FatoorahController::class, 'payOrder']);
+
+
+
+Route::get('callback' , function(){
+    return 'success';
+});
+Route::get('error' , function(){
+    return 'payment faild';
+});
