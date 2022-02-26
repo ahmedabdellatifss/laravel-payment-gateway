@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('pay' ,[FatoorahController::class, 'payOrder']);
+Route::post('pay' ,[FatoorahController::class, 'payOrder']); // supposed to add middelware
 Route::get('call_back' ,[FatoorahController::class, 'paymentCallBack']);

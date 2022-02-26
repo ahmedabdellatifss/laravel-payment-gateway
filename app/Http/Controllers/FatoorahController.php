@@ -30,6 +30,10 @@ class FatoorahController extends Controller
         ];
 
         return $this->fatoorahservices->sendPayment($data);
+
+        // we need to save invoiceId that retrun from previos step to DB
+        // and need to userId who get it from middlware that we put it to api Route
+        // after payment complete and return to callback url will get invoiceId we can search in table to know who is the owner of the payment
     }
 
 
@@ -40,7 +44,11 @@ class FatoorahController extends Controller
         $data['key']=$request->paymentId;
         $data['keyType']='paymentId';
 
-        return $this->fatoorahservices->getPaymentStatus($data);
+        $paymentData = $this->fatoorahservices->getPaymentStatus($data);
+        return $paymentData['Data']['InvoiceId'];
+
+        //search where invoice id = $paymentData['Data']['InvoiceId'];
+
     }
 
 
